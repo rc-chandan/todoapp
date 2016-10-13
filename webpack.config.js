@@ -8,7 +8,7 @@ module.exports = {
     output: {
         // The compiled and minified file will be saved in the current directory and named
         // as bundle.js. Which will then be used in index.html
-        path: __dirname + '/dist/',
+        path: __dirname + '/docs/',
         filename: 'bundle.js'
     },
     module: {
@@ -39,7 +39,7 @@ module.exports = {
     devServer: {
         // 404 pages will fall back to ./ that means index.html
         historyApiFallback: true,
-        contentBase: './dist/',
+        contentBase: './docs/',
         // Inline true indicates server will refresh if we make any changes to any of the .js files
         inline: true,
         // port 3000 will be used to publish the app locally so the app can be accessed by
