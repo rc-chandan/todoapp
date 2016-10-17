@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import co from 'co';
 
 import TodoForm from './todo-form';
 import NavBar from './nav-bar';
@@ -41,12 +42,22 @@ export default class App extends Component {
                 this.getTodos();
                 callback();
             })
-            .catch(error => console.log(error));
+            .catch(err => console.log(err.stack));
     }
 
-    getTodos() {
-        axios.get(`${base}/api/todos`)
-                .then(response => this.setState({todos: response.data}))
-                .catch(err => console.log(err))
-        }
+    // Example of ES6 Generators for async task using co generator wrapper library
+    getTodos () {
+        let app = this;
+
+        co(function* () {
+            let todos = (yield axios.get(`${base}/api/todos`)).data;
+            app.setState({todos});
+        }).catch(err => console.log(err.stack));
+    }
+
+    deleteTodo() {
+
+    }
+
+
 }

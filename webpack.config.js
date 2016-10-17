@@ -28,7 +28,7 @@ module.exports = {
                 // will support most of the older browsers as well.
                 loader: 'babel',
                 query: {
-                    presets: ['es2015', 'react']
+                    presets: ['es2015', 'react', 'stage-3']
                 }
             }
         ]
