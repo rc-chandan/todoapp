@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import TodoListItem from './todo-list-item';
+import LoadingSVG from '../images/hourglass.svg'
 
 export default class TodoList extends Component {
     constructor(props) {
@@ -9,7 +10,15 @@ export default class TodoList extends Component {
     }
 
     render() {
-        if(this.props.todos.length <= 0){
+        const todos = this.props.todos;
+        if (todos === null){
+            return (
+                <div className="col-md-6 col-md-offset-3 text-center">
+                    <LoadingSVG width={60} height={60} />
+                </div>
+            )
+        }
+        else if (todos.length === 0){
             return (
                 <div className="col-md-6 col-md-offset-3 text-center">
                     <h1>You don't have any pending todos :)</h1>
@@ -23,6 +32,7 @@ export default class TodoList extends Component {
                 </div>
             );
         }
+
     }
 
     renderTodos({ todos }) {

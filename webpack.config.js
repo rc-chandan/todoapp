@@ -30,6 +30,11 @@ module.exports = {
                 query: {
                     presets: ['es2015', 'react', 'stage-3']
                 }
+            },
+            {
+                test: /\.svg$/,
+                exclude: /node_modules/,
+                loader: 'babel!react-svg'
             }
         ]
     },

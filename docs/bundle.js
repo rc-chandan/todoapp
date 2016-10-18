@@ -21501,7 +21501,7 @@
 	        var _this = (0, _possibleConstructorReturn3.default)(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
 	        _this.state = {
-	            todos: []
+	            todos: null
 	        };
 
 	        _this.getTodos = _this.getTodos.bind(_this);
@@ -25760,7 +25760,14 @@
 	    (0, _createClass3.default)(TodoList, [{
 	        key: 'render',
 	        value: function render() {
-	            if (this.props.todos.length <= 0) {
+	            var todos = this.props.todos;
+	            if (todos === null) {
+	                return _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    _react2.default.createElement('img', { src: '../images/hourglass.svg', alt: 'Loading...' })
+	                );
+	            } else if (todos.length === 0) {
 	                return _react2.default.createElement(
 	                    'div',
 	                    { className: 'col-md-6 col-md-offset-3 text-center' },
