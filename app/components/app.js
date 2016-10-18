@@ -14,7 +14,7 @@ export default class App extends Component {
         super(props);
 
         this.state = {
-            todos: []
+            todos: null
         }
 
         this.getTodos = this.getTodos.bind(this);

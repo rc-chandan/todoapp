@@ -21501,7 +21501,7 @@
 	        var _this = (0, _possibleConstructorReturn3.default)(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
 	        _this.state = {
-	            todos: []
+	            todos: null
 	        };
 
 	        _this.getTodos = _this.getTodos.bind(_this);
@@ -25743,6 +25743,10 @@
 
 	var _todoListItem2 = _interopRequireDefault(_todoListItem);
 
+	var _hourglass = __webpack_require__(289);
+
+	var _hourglass2 = _interopRequireDefault(_hourglass);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var TodoList = function (_Component) {
@@ -25760,7 +25764,14 @@
 	    (0, _createClass3.default)(TodoList, [{
 	        key: 'render',
 	        value: function render() {
-	            if (this.props.todos.length <= 0) {
+	            var todos = this.props.todos;
+	            if (todos === null) {
+	                return _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-md-6 col-md-offset-3 text-center' },
+	                    _react2.default.createElement(_hourglass2.default, { width: 60, height: 60 })
+	                );
+	            } else if (todos.length === 0) {
 	                return _react2.default.createElement(
 	                    'div',
 	                    { className: 'col-md-6 col-md-offset-3 text-center' },
@@ -25838,6 +25849,181 @@
 	};
 
 	exports.default = TodoListItem;
+
+/***/ },
+/* 289 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _extends2 = __webpack_require__(290);
+
+	var _extends3 = _interopRequireDefault(_extends2);
+
+	var _classCallCheck2 = __webpack_require__(177);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(178);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(197);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(251);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var SVG = function (_React$Component) {
+	  (0, _inherits3.default)(SVG, _React$Component);
+
+	  function SVG() {
+	    (0, _classCallCheck3.default)(this, SVG);
+	    return (0, _possibleConstructorReturn3.default)(this, (SVG.__proto__ || Object.getPrototypeOf(SVG)).apply(this, arguments));
+	  }
+
+	  (0, _createClass3.default)(SVG, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2.default.createElement(
+	        "svg",
+	        (0, _extends3.default)({ width: "162", height: "162", xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 100 100", preserveAspectRatio: "xMidYMid", className: "uil-hourglass" }, this.props),
+	        _react2.default.createElement("path", { fill: "none", className: "bk", d: "M0 0h100v100H0z" }),
+	        _react2.default.createElement(
+	          "g",
+	          null,
+	          _react2.default.createElement("path", { fill: "none", stroke: "#007282", strokeWidth: "5", strokeMiterlimit: "10", d: "M58.4 51.7c-.9-.9-1.4-2-1.4-2.3s.5-.4 1.4-1.4C70.8 43.8 79.8 30.5 80 15.5H20c.2 15 9.2 28.1 21.6 32.3.9.9 1.4 1.2 1.4 1.5s-.5 1.6-1.4 2.5C29.2 56.1 20.2 69.5 20 85.5h60c-.2-16-9.2-29.6-21.6-33.8z", className: "glass" }),
+	          _react2.default.createElement(
+	            "clipPath",
+	            { id: "a" },
+	            _react2.default.createElement(
+	              "path",
+	              { className: "clip", d: "M15 20h70v25H15z" },
+	              _react2.default.createElement("animate", { attributeName: "height", from: "25", to: "0", dur: "1s", repeatCount: "indefinite", keyTimes: "0;0.5;1" }),
+	              _react2.default.createElement("animate", { attributeName: "y", from: "20", to: "45", dur: "1s", repeatCount: "indefinite", keyTimes: "0;0.5;1" })
+	            )
+	          ),
+	          _react2.default.createElement(
+	            "clipPath",
+	            { id: "b" },
+	            _react2.default.createElement(
+	              "path",
+	              { className: "clip", d: "M15 55h70v25H15z" },
+	              _react2.default.createElement("animate", { attributeName: "height", from: "0", to: "25", dur: "1s", repeatCount: "indefinite", keyTimes: "0;0.5;1" }),
+	              _react2.default.createElement("animate", { attributeName: "y", from: "80", to: "55", dur: "1s", repeatCount: "indefinite", keyTimes: "0;0.5;1" })
+	            )
+	          ),
+	          _react2.default.createElement("path", { d: "M29 23c3.1 11.4 11.3 19.5 21 19.5S67.9 34.4 71 23H29z", clipPath: "url(#a)", fill: "#ffab00", className: "sand" }),
+	          _react2.default.createElement("path", { d: "M71.6 78c-3-11.6-11.5-20-21.5-20s-18.5 8.4-21.5 20h43z", clipPath: "url(#b)", fill: "#ffab00", className: "sand" }),
+	          _react2.default.createElement("animateTransform", { attributeName: "transform", type: "rotate", from: "0 50 50", to: "180 50 50", repeatCount: "indefinite", dur: "1s", values: "0 50 50;0 50 50;180 50 50", keyTimes: "0;0.7;1" })
+	        )
+	      );
+	    }
+	  }]);
+	  return SVG;
+	}(_react2.default.Component);
+
+	exports.default = SVG;
+
+/***/ },
+/* 290 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	exports.__esModule = true;
+
+	var _assign = __webpack_require__(291);
+
+	var _assign2 = _interopRequireDefault(_assign);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _assign2.default || function (target) {
+	  for (var i = 1; i < arguments.length; i++) {
+	    var source = arguments[i];
+
+	    for (var key in source) {
+	      if (Object.prototype.hasOwnProperty.call(source, key)) {
+	        target[key] = source[key];
+	      }
+	    }
+	  }
+
+	  return target;
+	};
+
+/***/ },
+/* 291 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(292), __esModule: true };
+
+/***/ },
+/* 292 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(293);
+	module.exports = __webpack_require__(184).Object.assign;
+
+/***/ },
+/* 293 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 19.1.3.1 Object.assign(target, source)
+	var $export = __webpack_require__(182);
+
+	$export($export.S + $export.F, 'Object', {assign: __webpack_require__(294)});
+
+/***/ },
+/* 294 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	// 19.1.2.1 Object.assign(target, source, ...)
+	var getKeys  = __webpack_require__(213)
+	  , gOPS     = __webpack_require__(242)
+	  , pIE      = __webpack_require__(243)
+	  , toObject = __webpack_require__(229)
+	  , IObject  = __webpack_require__(216)
+	  , $assign  = Object.assign;
+
+	// should work with symbols and should have deterministic property order (V8 bug)
+	module.exports = !$assign || __webpack_require__(193)(function(){
+	  var A = {}
+	    , B = {}
+	    , S = Symbol()
+	    , K = 'abcdefghijklmnopqrst';
+	  A[S] = 7;
+	  K.split('').forEach(function(k){ B[k] = k; });
+	  return $assign({}, A)[S] != 7 || Object.keys($assign({}, B)).join('') != K;
+	}) ? function assign(target, source){ // eslint-disable-line no-unused-vars
+	  var T     = toObject(target)
+	    , aLen  = arguments.length
+	    , index = 1
+	    , getSymbols = gOPS.f
+	    , isEnum     = pIE.f;
+	  while(aLen > index){
+	    var S      = IObject(arguments[index++])
+	      , keys   = getSymbols ? getKeys(S).concat(getSymbols(S)) : getKeys(S)
+	      , length = keys.length
+	      , j      = 0
+	      , key;
+	    while(length > j)if(isEnum.call(S, key = keys[j++]))T[key] = S[key];
+	  } return T;
+	} : $assign;
 
 /***/ }
 /******/ ]);
